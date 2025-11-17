@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Utf8XmlReader/Utf8XmlReader.csproj" />
+  <Project Path="../tests/Utf8XmlReaderTests/Utf8XmlReaderTests.csproj" />
+</Solution>
