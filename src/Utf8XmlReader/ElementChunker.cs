@@ -160,13 +160,12 @@ public sealed class ElementChunker : IDisposable
     {
         if (_eof) return false;
 
-        // Compact buffer if needed, but never resize in this implementation
+        // If needed, move next element to the beginning of the buffer
         if (_bufferPosition > 0)
         {
             int remainingBytes = _bufferUsed - _bufferPosition;
             if (remainingBytes > 0)
             {
-                // Move remaining data to beginning of buffer
                 var sourceSpan = _buffer.AsSpan(_bufferPosition, remainingBytes);
                 var destinationSpan = _buffer.AsSpan(0, remainingBytes);
                 sourceSpan.CopyTo(destinationSpan);
